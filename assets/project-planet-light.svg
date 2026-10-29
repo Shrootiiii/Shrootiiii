@@ -3,9 +3,9 @@
   <text x="40" y="62" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="18" fill="#6E6C66">03</text>
   <text x="104" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="-1.2" fill="#16161A">Planet Explorer</text>
   <text x="104" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" fill="#6E6C66">An interactive tour of the solar system</text>
-  <text x="104" y="140" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#3D5AFE">planet-explorer-xi.vercel.app  ↗</text>
+  <text x="104" y="140" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#15803D">planet-explorer-xi.vercel.app  ↗</text>
   <g transform="translate(1016 24)"><ellipse cx="60" cy="60" rx="56" ry="18" fill="none" stroke="#D9D6CE" stroke-width="2" transform="rotate(-18 60 60)"/>
-    <circle cx="60" cy="60" r="28" fill="#3D5AFE"/>
+    <circle cx="60" cy="60" r="28" fill="#15803D"/>
     <path d="M10 76 A 56 18 -18 0 0 110 44" fill="none" stroke="#16161A" stroke-width="2" transform="rotate(0)"/>
     <circle cx="104" cy="34" r="6" fill="#16161A"/></g>
 </svg>

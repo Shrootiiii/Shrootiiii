@@ -3,6 +3,6 @@
   <text x="40" y="62" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="18" fill="#8C8A84">04</text>
   <text x="104" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="-1.2" fill="#F2F1EC">Color Picker</text>
   <text x="104" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" fill="#8C8A84">A colour tool for building palettes</text>
-  <text x="104" y="140" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#7C8CFF">color-picker-seven-rust.vercel.app  ↗</text>
-  <g transform="translate(1016 24)"><rect x="6" y="20" width="20" height="66" rx="10" fill="#FF5A4E"/><rect x="28" y="34" width="20" height="66" rx="10" fill="#FFB23F"/><rect x="50" y="20" width="20" height="66" rx="10" fill="#3FCF8E"/><rect x="72" y="34" width="20" height="66" rx="10" fill="#3D9BFF"/><rect x="94" y="20" width="20" height="66" rx="10" fill="#7C8CFF"/></g>
+  <text x="104" y="140" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#4ADE80">color-picker-seven-rust.vercel.app  ↗</text>
+  <g transform="translate(1016 24)"><rect x="6" y="20" width="20" height="66" rx="10" fill="#FF5A4E"/><rect x="28" y="34" width="20" height="66" rx="10" fill="#FFB23F"/><rect x="50" y="20" width="20" height="66" rx="10" fill="#4ADE80"/><rect x="72" y="34" width="20" height="66" rx="10" fill="#3D9BFF"/><rect x="94" y="20" width="20" height="66" rx="10" fill="#A78BFA"/></g>
 </svg>

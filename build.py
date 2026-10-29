@@ -12,8 +12,8 @@ SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helveti
 MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"
 
 THEMES = {
-    "light": dict(bg="#F7F6F2", ink="#16161A", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#3D5AFE", accent_ink="#FFFFFF"),
-    "dark":  dict(bg="#0E0E10", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#7C8CFF", accent_ink="#0E0E10"),
+    "light": dict(bg="#F7F6F2", ink="#16161A", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#15803D", accent_ink="#FFFFFF"),
+    "dark":  dict(bg="#0E0E10", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#4ADE80", accent_ink="#0E0E10"),
 }
 
 
@@ -112,7 +112,7 @@ def motif_planet(c):
 
 
 def motif_color(c):
-    swatches = ["#FF5A4E", "#FFB23F", "#3FCF8E", "#3D9BFF", c["accent"]]
+    swatches = ["#FF5A4E", "#FFB23F", c["accent"], "#3D9BFF", "#A78BFA"]
     return "".join(
         f'<rect x="{6 + i * 22}" y="{20 + (i % 2) * 14}" width="20" height="66" rx="10" fill="{s}"/>'
         for i, s in enumerate(swatches)

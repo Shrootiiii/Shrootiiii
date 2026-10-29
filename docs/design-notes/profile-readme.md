@@ -4,6 +4,9 @@ Last updated: 2026-10-29
 
 ## What changed
 
+### 2026-10-29 (accent)
+- Accent changed from indigo to green: `#15803D` light, `#4ADE80` dark (`build.py` `THEMES`). The Color Picker motif swaps its green swatch for purple so the accent is not repeated.
+
 ### 2026-10-29
 - Replaced the plain Markdown README with generated SVG artwork: header banner, section labels, four project cards and a tools strip (`README.md`, `assets/`).
 - Added `build.py`, which writes every SVG in a light and a dark variant from one set of theme tokens (`THEMES`).
