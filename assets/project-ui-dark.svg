@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="184" viewBox="0 0 1200 184" role="img" aria-label="ui: Open-source React + Tailwind components, shadcn-compatible">
-  <rect x="1" y="1" width="1198" height="166" rx="18" fill="#0E0E10" stroke="#1F1F23" stroke-width="2"/>
+  <rect x="1" y="1" width="1198" height="166" rx="18" fill="#0E0F13" stroke="#1F1F23" stroke-width="2"/>
   <text x="40" y="62" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="18" fill="#8C8A84">01</text>
   <text x="104" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="-1.2" fill="#F2F1EC">ui</text>
   <text x="104" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" fill="#8C8A84">Open-source React + Tailwind components, shadcn-compatible</text>
-  <text x="104" y="140" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#4ADE80">npx shadcn add @ui-shrushank/…  ↗</text>
+  <text x="104" y="140" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#8EC16A">npx shadcn add @ui-shrushank/…  ↗</text>
   <g transform="translate(1016 24)"><rect x="8" y="22" width="104" height="76" rx="12" fill="none" stroke="#2A2A2E" stroke-width="2"/>
     <rect x="22" y="38" width="50" height="10" rx="5" fill="#F2F1EC"/>
     <rect x="22" y="56" width="76" height="8" rx="4" fill="#2A2A2E"/>
-    <rect x="22" y="74" width="34" height="14" rx="7" fill="#4ADE80"/></g>
+    <rect x="22" y="74" width="34" height="14" rx="7" fill="#8EC16A"/></g>
 </svg>

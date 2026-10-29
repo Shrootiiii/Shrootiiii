@@ -4,6 +4,9 @@ Last updated: 2026-10-29
 
 ## What changed
 
+### 2026-10-29 (portfolio palette)
+- Accent set to the portfolio's moss tokens: `#4D6B34` light, `#8EC16A` dark. Background and ink switched to the portfolio's ivory `#F5F3EF` and ink `#0E0F13` (`build.py` `THEMES`), so the profile and the site share one palette.
+
 ### 2026-10-29 (accent)
 - Accent changed from indigo to green: `#15803D` light, `#4ADE80` dark (`build.py` `THEMES`). The Color Picker motif swaps its green swatch for purple so the accent is not repeated.
 

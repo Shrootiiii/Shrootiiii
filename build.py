@@ -12,8 +12,8 @@ SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helveti
 MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"
 
 THEMES = {
-    "light": dict(bg="#F7F6F2", ink="#16161A", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#15803D", accent_ink="#FFFFFF"),
-    "dark":  dict(bg="#0E0E10", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#4ADE80", accent_ink="#0E0E10"),
+    "light": dict(bg="#F5F3EF", ink="#0E0F13", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#4D6B34", accent_ink="#FFFFFF"),
+    "dark":  dict(bg="#0E0F13", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#8EC16A", accent_ink="#0E0F13"),
 }
 
 
