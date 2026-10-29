@@ -4,6 +4,9 @@ Last updated: 2026-10-29
 
 ## What changed
 
+### 2026-10-29 (highlight)
+- The header's selection box gets a moss-light wash (`tint`, 38% light / 20% dark) that fades in after the box draws, and "design" uses a brighter green (`hl`: `#3F6B1F` light, `#A8DD7C` dark) so it reads against the wash (`build.py` `header`). Plain moss text alone was too muted to read as the focal word.
+
 ### 2026-10-29 (portfolio palette)
 - Accent set to the portfolio's moss tokens: `#4D6B34` light, `#8EC16A` dark. Background and ink switched to the portfolio's ivory `#F5F3EF` and ink `#0E0F13` (`build.py` `THEMES`), so the profile and the site share one palette.
 

@@ -12,8 +12,8 @@ SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helveti
 MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"
 
 THEMES = {
-    "light": dict(bg="#F5F3EF", ink="#0E0F13", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#4D6B34", accent_ink="#FFFFFF"),
-    "dark":  dict(bg="#0E0F13", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#8EC16A", accent_ink="#0E0F13"),
+    "light": dict(bg="#F5F3EF", ink="#0E0F13", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#4D6B34", accent_ink="#FFFFFF", hl="#3F6B1F", tint="#8EC16A", tint_op="0.38"),
+    "dark":  dict(bg="#0E0F13", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#8EC16A", accent_ink="#0E0F13", hl="#A8DD7C", tint="#8EC16A", tint_op="0.2"),
 }
 
 
@@ -57,6 +57,7 @@ def header(t, c):
     @keyframes nudge {{ from {{ opacity: 0; transform: translate(70px, 50px); }} }}
     /* fill-mode backwards: if a renderer skips animation, everything still shows */
     .box {{ stroke-dasharray: 940; animation: draw 1.1s cubic-bezier(.2,.7,.2,1) .4s backwards; }}
+    .wash {{ animation: pop .6s ease-out 1s backwards; }}
     .handles, .tag {{ animation: pop .4s ease-out 1.3s backwards; }}
     .cursor {{ animation: nudge 1s cubic-bezier(.2,.7,.2,1) .1s backwards; }}
     .caret {{ animation: blink 1.1s steps(1) infinite; }}
@@ -69,7 +70,8 @@ def header(t, c):
 
   <text x="64" y="204" class="sans" font-size="120" font-weight="600" letter-spacing="-5" fill="{c["ink"]}">I build what</text>
   <text x="64" y="{dy}" class="sans" font-size="120" font-weight="600" fill="{c["ink"]}">I</text>
-  <text x="{dx}" y="{dy}" class="sans" font-size="120" font-weight="600" textLength="{dw}" lengthAdjust="spacingAndGlyphs" fill="{c["accent"]}">design</text>
+  <rect class="wash" x="{bx}" y="{by}" width="{bw}" height="{bh}" fill="{c["tint"]}" fill-opacity="{c["tint_op"]}"/>
+  <text x="{dx}" y="{dy}" class="sans" font-size="120" font-weight="600" textLength="{dw}" lengthAdjust="spacingAndGlyphs" fill="{c["hl"]}">design</text>
   <text x="{bx + bw + 8}" y="{dy}" class="sans" font-size="120" font-weight="600" fill="{c["ink"]}">.</text>
 
   <rect class="box" x="{bx}" y="{by}" width="{bw}" height="{bh}" fill="none" stroke="{c["accent"]}" stroke-width="2"/>
