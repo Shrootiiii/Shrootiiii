@@ -1,8 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="184" viewBox="0 0 1200 184" role="img" aria-label="Color Picker: A colour tool for building palettes">
+  <style>
+    .beat, .ping, .wave, .press { transform-box: fill-box; transform-origin: center; }
+    @keyframes beat { 0%, 40%, 100% { transform: scale(1); } 10%, 28% { transform: scale(1.12); } }
+    @keyframes ping { to { transform: scale(2.8); opacity: 0; } }
+    @keyframes wave { 50% { transform: translateY(-7px); } }
+    @keyframes press { 0%, 70%, 100% { transform: scale(1); } 80% { transform: scale(.88); } }
+    .beat { animation: beat 2.4s ease-in-out infinite; }
+    .ping { animation: ping 1.8s ease-out infinite; }
+    .wave { animation: wave 2.2s ease-in-out infinite; }
+    .press { animation: press 3s ease-in-out infinite; }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
   <rect x="1" y="1" width="1198" height="166" rx="18" fill="#F5F3EF" stroke="#E6E3DB" stroke-width="2"/>
   <text x="40" y="62" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="18" fill="#6E6C66">04</text>
   <text x="104" y="68" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="40" font-weight="600" letter-spacing="-1.2" fill="#0E0F13">Color Picker</text>
   <text x="104" y="108" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" fill="#6E6C66">A colour tool for building palettes</text>
   <text x="104" y="140" font-family="ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace" font-size="16" fill="#4D6B34">color-picker-seven-rust.vercel.app  ↗</text>
-  <g transform="translate(1016 24)"><rect x="6" y="20" width="20" height="66" rx="10" fill="#FF5A4E"/><rect x="28" y="34" width="20" height="66" rx="10" fill="#FFB23F"/><rect x="50" y="20" width="20" height="66" rx="10" fill="#4D6B34"/><rect x="72" y="34" width="20" height="66" rx="10" fill="#3D9BFF"/><rect x="94" y="20" width="20" height="66" rx="10" fill="#A78BFA"/></g>
+  <g transform="translate(1016 24)"><rect class="wave" style="animation-delay:0.00s" x="6" y="20" width="20" height="66" rx="10" fill="#FF5A4E"/><rect class="wave" style="animation-delay:0.14s" x="28" y="34" width="20" height="66" rx="10" fill="#FFB23F"/><rect class="wave" style="animation-delay:0.28s" x="50" y="20" width="20" height="66" rx="10" fill="#4D6B34"/><rect class="wave" style="animation-delay:0.42s" x="72" y="34" width="20" height="66" rx="10" fill="#3D9BFF"/><rect class="wave" style="animation-delay:0.56s" x="94" y="20" width="20" height="66" rx="10" fill="#A78BFA"/></g>
 </svg>

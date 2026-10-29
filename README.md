@@ -9,6 +9,12 @@
   <source media="(prefers-color-scheme: dark)" srcset="assets/section-work-dark.svg">
   <img src="assets/section-work-light.svg" alt="Selected work" width="100%">
 </picture>
+<a href="https://sush-website-ten.vercel.app">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/project-sush-dark.svg">
+  <img src="assets/project-sush-light.svg" alt="Sush: a desktop AI agent your team can run together" width="100%">
+</picture>
+</a>
 <a href="https://github.com/Shrootiiii/ui">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/project-ui-dark.svg">
@@ -19,12 +25,6 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/project-mediclear-dark.svg">
   <img src="assets/project-mediclear-light.svg" alt="MediClear: an outpatient app" width="100%">
-</picture>
-</a>
-<a href="https://planet-explorer-xi.vercel.app">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/project-planet-dark.svg">
-  <img src="assets/project-planet-light.svg" alt="Planet Explorer: an interactive tour of the solar system" width="100%">
 </picture>
 </a>
 <a href="https://color-picker-seven-rust.vercel.app">
@@ -41,4 +41,9 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/tools-dark.svg">
   <img src="assets/tools-light.svg" alt="TypeScript, React, Next.js, Tailwind, shadcn/ui, Rust, Tauri, Figma" width="100%">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/signoff-dark.svg">
+  <img src="assets/signoff-light.svg" alt="Thanks for scrolling this far." width="100%">
 </picture>

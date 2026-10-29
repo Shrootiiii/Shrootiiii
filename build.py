@@ -10,10 +10,22 @@ OUT.mkdir(exist_ok=True)
 
 SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif"
 MONO = "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace"
+# Handwriting for the whimsical notes: macOS, then Windows, then whatever cursive exists.
+HAND = "'Bradley Hand', Noteworthy, 'Segoe Print', 'Ink Free', 'Comic Sans MS', cursive"
+
+# Every animated SVG carries this, so visitors who ask for less motion get the still frame.
+CALM = "@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }"
+
+
+def sparkle(x, y, r, color, delay, cls="twinkle"):
+    # Four-point star centred on (x, y).
+    k = r * 0.28
+    d = f"M{x} {y - r} Q{x + k} {y - k} {x + r} {y} Q{x + k} {y + k} {x} {y + r} Q{x - k} {y + k} {x - r} {y} Q{x - k} {y - k} {x} {y - r}Z"
+    return f'<path class="{cls}" style="animation-delay:{delay}s" d="{d}" fill="{color}"/>'
 
 THEMES = {
-    "light": dict(bg="#F5F3EF", ink="#0E0F13", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#4D6B34", accent_ink="#FFFFFF", hl="#3F6B1F", tint="#8EC16A", tint_op="0.38"),
-    "dark":  dict(bg="#0E0F13", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#8EC16A", accent_ink="#0E0F13", hl="#A8DD7C", tint="#8EC16A", tint_op="0.2"),
+    "light": dict(bg="#F5F3EF", ink="#0E0F13", muted="#6E6C66", faint="#D9D6CE", line="#E6E3DB", accent="#4D6B34", accent_ink="#FFFFFF", hl="#4D6B34", tint="#8EC16A", tint_op="0.38"),
+    "dark":  dict(bg="#0E0F13", ink="#F2F1EC", muted="#8C8A84", faint="#2A2A2E", line="#1F1F23", accent="#8EC16A", accent_ink="#0E0F13", hl="#8EC16A", tint="#8EC16A", tint_op="0.2"),
 }
 
 
@@ -61,6 +73,14 @@ def header(t, c):
     .handles, .tag {{ animation: pop .4s ease-out 1.3s backwards; }}
     .cursor {{ animation: nudge 1s cubic-bezier(.2,.7,.2,1) .1s backwards; }}
     .caret {{ animation: blink 1.1s steps(1) infinite; }}
+    @keyframes twinkle {{ 0%, 100% {{ transform: scale(1) rotate(0deg); opacity: 1; }} 50% {{ transform: scale(.45) rotate(45deg); opacity: .5; }} }}
+    @keyframes bob {{ 50% {{ transform: translate(-5px, -4px); }} }}
+    @keyframes scribble {{ from {{ stroke-dashoffset: 700; }} }}
+    .twinkle {{ transform-box: fill-box; transform-origin: center; animation: twinkle 2.6s ease-in-out infinite; }}
+    .cursor {{ animation: nudge 1s cubic-bezier(.2,.7,.2,1) .1s backwards, bob 3.2s ease-in-out 1.2s infinite; }}
+    .arrow {{ stroke-dasharray: 700; animation: scribble 1.2s ease-out 1.7s backwards; }}
+    .note {{ animation: pop .5s ease-out 2.4s backwards; }}
+    {CALM}
   </style>
   <rect width="{w}" height="{h}" rx="20" fill="{c["bg"]}"/>
   {dot_grid(w, h, 24, c["faint"], "g")}
@@ -80,6 +100,15 @@ def header(t, c):
     <rect x="{bx + bw / 2 - 52}" y="{by + bh + 14}" width="104" height="26" rx="4" fill="{c["accent"]}"/>
     <text x="{bx + bw / 2}" y="{by + bh + 32}" text-anchor="middle" class="mono" font-size="13" fill="{c["accent_ink"]}">{bw} × {bh}</text>
   </g>
+  {sparkle(668, 118, 14, c["accent"], 0)}
+  {sparkle(bx + bw + 44, by - 4, 7, c["ink"], .9)}
+  {sparkle(bx - 22, by + bh + 22, 9, c["accent"], 1.6)}
+
+  <!-- A margin note, as if scribbled on the canvas -->
+  <path class="arrow" d="M 800 232 C 780 300, 700 318, 676 280 C 656 248, 708 236, 712 272 C 716 312, 620 316, 520 268" fill="none" stroke="{c["muted"]}" stroke-width="2.5" stroke-linecap="round"/>
+  <path class="arrow" d="M 534 290 L 516 266 L 544 258" fill="none" stroke="{c["muted"]}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="note" x="790" y="214" font-family="{HAND}" font-size="34" fill="{c["accent"]}" transform="rotate(-5 790 214)">the fun part!</text>
+
   <g class="cursor">
     <path d="M {bx + bw + 56} {by + bh - 6} l 0 34 l 9 -9 l 7 15 l 7 -3 l -7 -15 l 13 0 z" fill="{c["ink"]}" stroke="{c["bg"]}" stroke-width="2" stroke-linejoin="round"/>
   </g>
@@ -103,20 +132,24 @@ def section(t, c, name, label):
 # Small abstract motifs, one per project, drawn in a 120×120 box.
 def motif_medi(c):
     return f"""<rect x="10" y="10" width="100" height="100" rx="28" fill="none" stroke="{c["faint"]}" stroke-width="2"/>
-    <path d="M48 30h24v18h18v24H72v18H48V72H30V48h18z" fill="{c["accent"]}"/>"""
+    <path class="beat" d="M48 30h24v18h18v24H72v18H48V72H30V48h18z" fill="{c["accent"]}"/>"""
 
 
-def motif_planet(c):
-    return f"""<ellipse cx="60" cy="60" rx="56" ry="18" fill="none" stroke="{c["faint"]}" stroke-width="2" transform="rotate(-18 60 60)"/>
-    <circle cx="60" cy="60" r="28" fill="{c["accent"]}"/>
-    <path d="M10 76 A 56 18 -18 0 0 110 44" fill="none" stroke="{c["ink"]}" stroke-width="2" transform="rotate(0)"/>
-    <circle cx="104" cy="34" r="6" fill="{c["ink"]}"/>"""
+def motif_sush(c):
+    # Two people in one live session: overlapping avatars and a live dot.
+    return f"""<rect x="8" y="18" width="104" height="84" rx="14" fill="none" stroke="{c["faint"]}" stroke-width="2"/>
+    <circle cx="48" cy="62" r="20" fill="{c["accent"]}"/>
+    <circle cx="74" cy="62" r="20" fill="{c["ink"]}" stroke="{c["bg"]}" stroke-width="4"/>
+    <text x="48" y="69" text-anchor="middle" font-family="{SANS}" font-size="19" font-weight="600" fill="{c["accent_ink"]}">S</text>
+    <text x="74" y="69" text-anchor="middle" font-family="{SANS}" font-size="19" font-weight="600" fill="{c["bg"]}">S</text>
+    <circle class="ping" cx="96" cy="32" r="5" fill="none" stroke="{c["accent"]}" stroke-width="2"/>
+    <circle cx="96" cy="32" r="5" fill="{c["accent"]}"/>"""
 
 
 def motif_color(c):
     swatches = ["#FF5A4E", "#FFB23F", c["accent"], "#3D9BFF", "#A78BFA"]
     return "".join(
-        f'<rect x="{6 + i * 22}" y="{20 + (i % 2) * 14}" width="20" height="66" rx="10" fill="{s}"/>'
+        f'<rect class="wave" style="animation-delay:{i * .14:.2f}s" x="{6 + i * 22}" y="{20 + (i % 2) * 14}" width="20" height="66" rx="10" fill="{s}"/>'
         for i, s in enumerate(swatches)
     )
 
@@ -125,13 +158,13 @@ def motif_ui(c):
     return f"""<rect x="8" y="22" width="104" height="76" rx="12" fill="none" stroke="{c["faint"]}" stroke-width="2"/>
     <rect x="22" y="38" width="50" height="10" rx="5" fill="{c["ink"]}"/>
     <rect x="22" y="56" width="76" height="8" rx="4" fill="{c["faint"]}"/>
-    <rect x="22" y="74" width="34" height="14" rx="7" fill="{c["accent"]}"/>"""
+    <rect class="press" x="22" y="74" width="34" height="14" rx="7" fill="{c["accent"]}"/>"""
 
 
 PROJECTS = [
-    ("ui", "01", "ui", "Open-source React + Tailwind components, shadcn-compatible", "npx shadcn add @ui-shrushank/…", motif_ui),
-    ("mediclear", "02", "MediClear", "An outpatient app for clinics and their patients", "medi-clear-app.vercel.app", motif_medi),
-    ("planet", "03", "Planet Explorer", "An interactive tour of the solar system", "planet-explorer-xi.vercel.app", motif_planet),
+    ("sush", "01", "Sush", "A desktop AI agent your team can run together, live and end-to-end encrypted", "sush-website-ten.vercel.app", motif_sush),
+    ("ui", "02", "ui", "Open-source React + Tailwind components, shadcn-compatible", "npx shadcn add @ui-shrushank/…", motif_ui),
+    ("mediclear", "03", "MediClear", "An outpatient app for clinics and their patients", "medi-clear-app.vercel.app", motif_medi),
     ("color", "04", "Color Picker", "A colour tool for building palettes", "color-picker-seven-rust.vercel.app", motif_color),
 ]
 
@@ -142,6 +175,18 @@ def project(t, c, key, num, title, desc, url, motif):
     w, h = 1200, 184
     svg = f"""
 <svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="{title}: {desc}">
+  <style>
+    .beat, .ping, .wave, .press {{ transform-box: fill-box; transform-origin: center; }}
+    @keyframes beat {{ 0%, 40%, 100% {{ transform: scale(1); }} 10%, 28% {{ transform: scale(1.12); }} }}
+    @keyframes ping {{ to {{ transform: scale(2.8); opacity: 0; }} }}
+    @keyframes wave {{ 50% {{ transform: translateY(-7px); }} }}
+    @keyframes press {{ 0%, 70%, 100% {{ transform: scale(1); }} 80% {{ transform: scale(.88); }} }}
+    .beat {{ animation: beat 2.4s ease-in-out infinite; }}
+    .ping {{ animation: ping 1.8s ease-out infinite; }}
+    .wave {{ animation: wave 2.2s ease-in-out infinite; }}
+    .press {{ animation: press 3s ease-in-out infinite; }}
+    {CALM}
+  </style>
   <rect x="1" y="1" width="{w - 2}" height="166" rx="18" fill="{c["bg"]}" stroke="{c["line"]}" stroke-width="2"/>
   <text x="40" y="62" font-family="{MONO}" font-size="18" fill="{c["muted"]}">{num}</text>
   <text x="104" y="68" font-family="{SANS}" font-size="40" font-weight="600" letter-spacing="-1.2" fill="{c["ink"]}">{title}</text>
@@ -172,6 +217,23 @@ def tools(t, c):
     write("tools", t, svg)
 
 
+def signoff(t, c):
+    w, h = 1200, 120
+    svg = f"""
+<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-label="Thanks for scrolling this far.">
+  <style>
+    .twinkle {{ transform-box: fill-box; transform-origin: center; animation: twinkle 2.6s ease-in-out infinite; }}
+    @keyframes twinkle {{ 50% {{ transform: scale(.45) rotate(45deg); opacity: .5; }} }}
+    {CALM}
+  </style>
+  <path d="M 420 92 q 20 -14 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0 t 40 0" fill="none" stroke="{c["accent"]}" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="{w / 2}" y="62" text-anchor="middle" font-family="{HAND}" font-size="34" fill="{c["muted"]}">thanks for scrolling this far</text>
+  {sparkle(w / 2 + 250, 40, 11, c["accent"], 0)}
+  {sparkle(w / 2 - 250, 52, 8, c["accent"], 1.1)}
+</svg>"""
+    write("signoff", t, svg)
+
+
 for t, c in THEMES.items():
     header(t, c)
     section(t, c, "work", "Selected work")
@@ -179,5 +241,6 @@ for t, c in THEMES.items():
     for p in PROJECTS:
         project(t, c, *p)
     tools(t, c)
+    signoff(t, c)
 
 print(f"wrote {len(list(OUT.glob('*.svg')))} files to {OUT}")
